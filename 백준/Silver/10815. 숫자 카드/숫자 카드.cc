@@ -2,24 +2,26 @@
 #include <vector>
 #include <algorithm>
 using namespace std;
-int main() {
-    ios_base::sync_with_stdio(false); //표준 스트림 동기화 해제
-    cin.tie(nullptr); //입출력 연결 끊기
-    int N, M;
-    vector<int> vec;
-    cin >> N;
-    for (int i = 0; i < N; ++i)
-    {
-        int input;
-        cin >> input;
-        vec.push_back(input);
+
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+
+    int n1, n2;
+    vector <int> v1;
+    int i, tmp;
+
+    cin >> n1;
+    for (i=0; i<n1; i++){
+        cin >> tmp;
+        v1.push_back(tmp);
     }
-    sort(vec.begin(), vec.end());
-    cin >> M;
-    for (int i = 0; i < M; ++i)
-    {
-        int input;
-        cin >> input;
-        cout << binary_search(vec.begin(), vec.end(), input) << ' ';
+    sort(v1.begin(), v1.end());
+
+    cin >> n2;
+    for (i=0; i<n2; i++){
+        cin >> tmp;
+        cout << binary_search(v1.begin(), v1.end(), tmp) << " ";
     }
 }
