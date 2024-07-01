@@ -1,39 +1,40 @@
 #include <iostream>
 #include <cmath>
-
 using namespace std;
 
-#define MAX_NUM 236196
+// 최대 경우의 수 계산
+int visit[236196];
+int b;
+int cnt = 0;
 
-int visit[MAX_NUM];
-int P;
-int answer = 0;
-
-void DFS(int A){
-    int origin = A;
+void dfs(int a){
+    int orig = a;
     int next = 0;
 
-    visit[A-1]++;
+    // 방문 횟수 증가
+    visit[orig-1]++;
 
-    while(A > 0){
-        next += (int)pow( A % 10 , P);
-        A /= 10;
-    }
+    // 다음 수열 계산 (pow 부동소수점 오류로 하드코딩)
+    next = pow(a/100000, b) + pow((a%100000)/10000, b) + pow((a%10000)/1000, b) + pow((a%1000)/100, b) + pow((a%100)/10, b) + pow((a%10), b);
+    
+    // 이미 두번 방문했다면 종료
+    if (visit[next-1]==2) return;
+    
+    // 아니라면 깊이우선탐색 진행
+    dfs(next);
 
-    if(visit[next-1] == 2) return ;
-     
-    DFS(next);
-
-    if(visit[origin-1] == 1) answer++;
-
+    // 종료 후 되돌아오며 한번만 방문했을 경우에 cnt 증가
+    if (visit[orig-1]==1) cnt++;
 }
 
-int main(int argc, char** argv){
-    int A , num;
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
 
-    cin >> A >> P;
+    int a;
+    cin >> a >> b;
 
-    DFS(A);
-
-    cout << answer;
+    dfs(a);
+    cout << cnt;
 }
