@@ -19,14 +19,14 @@ int main(){
         else{
             if (tmp == '(')                     // '(' 연산자는 push
                 s.push(tmp);
-            else if (tmp == '*' || tmp == '/'){ // *,/ 연산자는 이전의 *,/ 연산자가 있다며 출력 후 현재 연산자 push
+            else if (tmp == '*' || tmp == '/'){ // *,/ 연산자는 이전의 *,/ 연산자가 있다면 출력 후 현재 연산자 push
                 while (!s.empty() && (s.top() == '*' || s.top() == '/')){
                     cout << s.top();
                     s.pop();
                 }
                 s.push(tmp);
             }
-            else if (tmp == '+' || tmp == '-'){ // '('가 아니라면 출력 후 현재 연산자 push
+            else if (tmp == '+' || tmp == '-'){ // '(' 전까지 출력 후 현재 연산자 push
                 while (!s.empty() && s.top() != '('){
                     cout << s.top();
                     s.pop();
