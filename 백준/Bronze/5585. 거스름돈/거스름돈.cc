@@ -11,29 +11,13 @@ int main(){
     price = 1000 - price;
     int cnt = 0;
 
-    while(price/500 > 0){
-        price -= 500;
-        cnt++;
-    }
+    int money[5] = {500, 100, 50, 10, 5};
 
-    while(price/100 > 0){
-        price -= 100;
-        cnt++;
-    }
-
-    while(price/50 > 0){
-        price -= 50;
-        cnt++;
-    }
-
-    while(price/10 > 0){
-        price -= 10;
-        cnt++;
-    }
-
-    while(price/5 > 0){
-        price -= 5;
-        cnt++;
+    for (int i=0; i<5; i++){
+        while(price/money[i] > 0){
+            price -= money[i];
+            cnt++;
+        }
     }
 
     cnt += price;
