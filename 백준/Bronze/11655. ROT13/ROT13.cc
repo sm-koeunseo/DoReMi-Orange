@@ -1,21 +1,18 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main(){
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
-
     string s;
-    char t;
-    getline(cin, s);            // 띄어쓰기 포함 입력
-    for(int i=0; i<s.length(); i++){
-        t = s[i];
-        if(64<t && t<91)        // 대문자 처리
-            s[i] = 65 + (t+13-65)%26;
-        else if (96<t && t<123) // 소문자 처리
-            s[i] = 97 + (t+13-97)%26;
+    getline(cin, s);
+    
+    for (int i=0; i<s.length(); i++){
+        if (s[i] > 64 && s[i] < 91){
+            if (s[i] + 13 > 90) s[i] = s[i] + 13 - 26;
+            else                s[i] = s[i] + 13;
+        }else if (s[i] > 96 && s[i] < 123){
+            if (s[i] + 13 > 122)    s[i] = s[i] + 13 - 26;
+            else                    s[i] = s[i] + 13;
+        }
+        cout << s[i];
     }
-
-    cout << s;
 }
