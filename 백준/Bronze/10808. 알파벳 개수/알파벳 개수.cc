@@ -6,8 +6,8 @@ int main(){
     string s;
 
     cin >> s;
-    for(int i=0; i<s.length(); i++){
-        a[s[i]-97]++;
+    for (char c: s){
+        a[c-97]++;
     }
     for(int i=0; i<26; i++){
         cout << a[i] << " ";
