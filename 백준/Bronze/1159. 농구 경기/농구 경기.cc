@@ -2,9 +2,9 @@
 using namespace std;
 
 int main(){
-    int n, a[26] = {0}, c=0;
+    int n, a[26] = {0};
     cin >> n;
-    string s;
+    string s, r;
 
     for (int i=0; i<n; i++){
         cin >> s;
@@ -12,11 +12,7 @@ int main(){
     }
 
     for (int i=0; i<26; i++)
-        if (a[i] > 4) c++;
-
-    if (c > 0){
-        for (int i=0; i<26; i++)
-            if (a[i] > 4) cout << (char)(i + 'a');
-    } else
-        cout << "PREDAJA";
+        if (a[i] > 4) r += (i + 'a');
+    if (r.size()) cout << r;
+    else cout << "PREDAJA";
 }
