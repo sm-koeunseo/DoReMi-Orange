@@ -2,16 +2,14 @@
 using namespace std;
 
 int main(){
-    string s;
+    string s, t;
     cin >> s;
 
-    int l = s.length();
-    for (int i=0; i<l/2; i++){
-        if (s[i] != s[l-1-i]){
-            cout << 0;
-            return 0;
-        }
-    }
-    cout << 1;
+    t = s;
+    reverse(t.begin(), t.end());
+    
+    if (t == s) cout << 1;
+    else        cout << 0;
+    
     return 0;
 }
