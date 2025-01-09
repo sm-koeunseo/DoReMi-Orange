@@ -11,15 +11,13 @@ int main(){
     for (int i=0; i<n; i++){
         cin >> a[i];
     }
-    for (int i=0; i<n-1; i++){
-        if (a[i] < 0) continue;
-        for(int j=i+1; j<n; j++){
-            if (a[i] + a[j] == m){
-                cnt++;
-                a[i] = INT_MIN;
-                a[j] = INT_MIN;
+    if (m > 200000) cout << 0;
+    else{
+        for (int i=0; i<n-1; i++){
+            for(int j=i+1; j<n; j++){
+                if (a[i] + a[j] == m) cnt++;
             }
         }
+        cout << cnt;
     }
-    cout << cnt;
 }
