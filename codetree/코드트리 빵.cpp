@@ -10,7 +10,7 @@ int a[15][15], dist[15][15];
 int dx[] = {-1, 0, 0, 1}; // ↑ ← → ↓
 int dy[] = {0, -1, 1, 0};
 
-vector<pair<int,int>> every;     // 모든 베이스캠프프
+vector<pair<int,int>> every;     // 모든 베이스캠프
 vector<pair<int,int>> store;    // 가려는 편의점
 vector<pair<int,int>> base;     // 출발 베이스캠프
 vector<pair<int,int>> person;   // 현재 사람의 위치
