@@ -1,9 +1,11 @@
+import collections
+
 def solution(participant, completion):
-    participant.sort()
-    completion.sort()
+    # collections.Counter() -> 리스트 안의 각 요소가 몇 번 등장했는지 -> {이름: 개수}
     
-    for p, c in zip(participant, completion):
-        if p != c:
-            return p
+    part_counter = collections.Counter(participant)
+    comp_counter = collections.Counter(completion)
+    
+    answer = part_counter - comp_counter
         
-    return participant[-1]
+    return list(answer.keys())[0]
