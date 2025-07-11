@@ -1,8 +1,8 @@
-def dfs(node, computers, visited):
+def bfs(node, computers, visited):
     visited[node] = True
     for tmp in range(len(computers)):
         if not visited[tmp] and computers[node][tmp] == 1:
-            dfs(tmp, computers, visited)
+            bfs(tmp, computers, visited)
 
 def solution(n, computers):
     visited = [False] * n
@@ -10,7 +10,7 @@ def solution(n, computers):
     
     for i in range(n):
         if not visited[i]:
-            dfs(i, computers, visited)
+            bfs(i, computers, visited)
             answer += 1
     
     return answer
