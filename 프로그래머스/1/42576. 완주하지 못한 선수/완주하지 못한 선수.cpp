@@ -10,7 +10,7 @@ string solution(vector<string> participant, vector<string> completion) {
     sort(completion.begin(), completion.end());
     
     for (int i=0; i<completion.size(); i++){
-        if (participant[i].compare(completion[i]) != 0)
+        if (participant[i] != completion[i])
             return participant[i];
     }
     
