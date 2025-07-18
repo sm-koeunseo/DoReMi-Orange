@@ -1,21 +1,8 @@
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
-int cnt;
-bool v[200001];
+int solution(vector<int> nums) {
+    unordered_set<int> s(nums.begin(), nums.end());
 
-int solution(vector<int> nums)
-{
-    int s = nums.size();
-    for (int i=0; i<s; i++){
-        if (v[nums[i]] == false){
-            v[nums[i]] = true;
-            cnt++;
-        }
-    }
-    
-    if (s/2 < cnt)
-        return s/2;
-    else
-        return cnt;
+    return min(nums.size() / 2, s.size());
 }
